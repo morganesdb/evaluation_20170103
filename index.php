@@ -2,6 +2,7 @@
 
 $file = fopen("questions.qs", "r" );
 $lines=file("questions.qs");
+$tableau=file("questions.qs");
 $theme = "##";
 $question = "#";
 $possibilites = array();
@@ -39,7 +40,9 @@ echo '<h3>',$tableau1,'</h3>'."\n";
       $tableau2 = $linecontent;
 
 echo '<section id="bloc1"><h4><span>',$numero, $tableau2,'</span></h4>', "\n";
-      $numero ++;    }
+      $numero ++;
+      if ($tableau[$linenumber+1][0]=="#"){echo '<input type="textarea" name="'.$numero.'" value="'.$value.'">'.'<br>';     // <input type="box" name="ecrire[]" value="2"> nom 2<br>
+} }
       elseif ($linecontent[0] == '-')
   {
       $possibilites = $linecontent;
@@ -48,17 +51,16 @@ echo '<section id="bloc1"><h4><span>',$numero, $tableau2,'</span></h4>', "\n";
 
 
 
-    echo '<input type="checkbox" name="choix[]" value="'.$tableau2.$linecontent.'">'.$possibilites.'<br>';     // <input type="checkbox" name="choix[]" value="2"> nom 2<br>
+    echo '<input type="radio" name="'.$numero.'" value="'.$tableau2.$linecontent.'">'.$possibilites.'<br>';     // <input type="radio" name="choix[]" value="2"> nom 2<br>
 
-     // <input type="checkbox" name="choix[]" value="3"> nom 3<br>
+     // <input type="radio" name="choix[]" value="3"> nom 3<br>
 
-     // <input type="checkbox" name="choix[]" value="4"> nom 4<br>
+     // <input type="radio" name="choix[]" value="4"> nom 4<br>
 
-     // <input type="checkbox" name="choix[]" value="5"> nom 5<br>
+     // <input type="radio" name="choix[]" value="5"> nom 5<br>
 
 
-
-   }
+}
 
 
 
